@@ -1,4 +1,5 @@
 import 'package:demo_2/modal.dart';
+import 'package:demo_2/modal2.dart';
 import 'package:flutter/material.dart';
 
 class Detail extends StatefulWidget {
@@ -28,6 +29,16 @@ class _DetailState extends State<Detail> {
                   children: [
                     Text("${d1.name}"),
                     Text("\$ ${d1.price}"),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          Data2 d2 = Data2(
+                              images: d1.image, nam: d1.name, prices: d1.price);
+                          Navigator.pushNamed(context, 'cart', arguments: d2);
+                        });
+                      },
+                      child: Text("Add to cart"),
+                    ),
                   ],
                 ),
               )
